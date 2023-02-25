@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 
-export default function textForm(props) {
+export default function TextForm(props) {
 
   const buttonstyle=({
     margin:5,
   })
 
   const handleOnChange =(event) =>{
-    setText(event.target.value);
+    SetText(event.target.value);
   
 }
     const handleUpClick=()=>{
-        let newText=text.toUpperCase();
-        setText(newText);
+        let newText=Text.toUpperCase();
+        SetText(newText);
     }
     const handleDownClick=()=>{
-      let newText=text.toLowerCase();
-      setText(newText);
+      let newText=Text.toLowerCase();
+      SetText(newText);
   }
  const copyText=()=>{
   let mytext=document.getElementById("textarea");
@@ -27,14 +27,14 @@ const cutText=()=>{
   let mytext=document.getElementById("textarea");
   mytext.select();
   navigator.clipboard.writeText(mytext.value);
-  setText('');
+  SetText('');
 }
 
 
 
   const ClearClick=()=>{
     let newText=' ';
-    setText(newText);
+    SetText(newText);
   }
   /*
   const [myStyle,setMyStyle]=useState({
@@ -60,7 +60,7 @@ const cutText=()=>{
     } 
   }*/
    
-    const [text,setText] = useState('Enter text here');
+    const [Text,SetText] = useState('Enter text here');
 
   return (
     
@@ -68,7 +68,7 @@ const cutText=()=>{
     <div className="container" style={{backgroundColor:props.mode==='light'?'white':'black',color: props.mode==='light'?'black':'white'}}>
       <div className="  mb-3 ">
   <label for="exampleFormControlTextarea1" className="form-label"> <h1>Text Here</h1> </label>
-  <textarea className="form-control" id="textarea" value={text} style={{backgroundColor:props.mode==='light'?'white':'black',color: props.mode==='light'?'black':'white'}} onChange={handleOnChange} rows="10" ></textarea>
+  <textarea className="form-control" id="textarea" value={Text} style={{backgroundColor:props.mode==='light'?'white':'black',color: props.mode==='light'?'black':'white'}} onChange={handleOnChange} rows="10" ></textarea>
 </div>
 <button className="btn btn-secondary " style={buttonstyle} onClick={handleUpClick}>ABC</button>
 <button className="btn btn-secondary " style={buttonstyle} onClick={handleDownClick}>abc</button>
@@ -78,9 +78,9 @@ const cutText=()=>{
 
 
 <h1>Input Summary</h1>
-<p>{text.split(" ").length} words and {text.length} characters</p>
+<p>{Text.split(" ").length} words and {Text.length} characters</p>
 <h1>Preview</h1> 
-<p>{text}</p>
+<p>{Text}</p>
     </div>
     </div>
   )
